@@ -1,0 +1,30 @@
+# Android Studio
+.gradle/
+.idea/
+**/build/
+local.properties
+*.iml
+
+# DJI License
+license_*.txt
+
+# Signing keys
+*.jks
+*.keystore
+*.pem
+*.p12
+
+# macOS
+.DS_Store
+
+# Build outputs
+*.apk
+*.aab
+.externalNativeBuild/
+.cxx/
+
+# Third-party SDK binary
+app/libs/dji-sdk-4.16.aar
+
+# Offline map assets
+app/src/main/assets/offline_map/

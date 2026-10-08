@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace "com.freelanding"
+    compileSdk 34
+
+    defaultConfig {
+        def localProps = new Properties()
+        def localPropsFile = rootProject.file("local.properties")
+
+        if (localPropsFile.exists()) {
+            localPropsFile.withInputStream {
+                localProps.load(it)
+            }
+        }
+
+        manifestPlaceholders = [
+            DJI_API_KEY: localProps.getProperty("DJI_API_KEY", "")
+        ]
+
+        applicationId "com.freelanding"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+// DJI SDK 需要 multidex
+        multiDexEnabled true
+
+// 必须添加 ABI，否则 SO 文件冲突
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+// 解决 DJI 的 SO 冲突
+    packagingOptions {
+        pickFirst "**/*.so"
+        pickFirst "**/*.jar"
+        pickFirst "**/libc++_shared.so"
+    }
+
+// ViewBinding 可选（推荐开启，写 UI 更快）
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // 本地 AAR（从上面下载的 ZIP 里复制过来）
+    implementation files('libs/dji-sdk-4.16.aar')
+    compileOnly files('libs/dji-sdk-provided-4.16.aar')
+    implementation files('libs/dji-maps-sdk-4.16.aar')  // 你有 MapFragment，用这个
+
+    // 保持其他（fileTree 会自动加载 libs/ 里的所有 AAR/JAR）
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+
+    // Android 官方依赖
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    implementation "com.google.android.material:material:1.11.0"
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.10"
+
+    // 删掉或注释这行（它会从 Maven 拉新版，导致冲突）
+    // compileOnly "com.dji:dji-sdk-provided:4.16"
+}

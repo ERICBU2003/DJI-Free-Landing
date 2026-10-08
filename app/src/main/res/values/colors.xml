@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="black_20">#33000000</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_70">#B3000000</color>
+
+    <color name="white_20">#33FFFFFF</color>
+    <color name="white_35">#59FFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="white_80">#CCFFFFFF</color>
+
+    <color name="dji_blue">#2A62FF</color>
+    <color name="dji_blue_light">#6B8DFF</color>
+    <color name="dji_blue_dark">#1F48C9</color>
+
+    <color name="warning_yellow">#FFCC00</color>
+    <color name="error_red">#FF3B30</color>
+
+    <color name="success_green">#00C853</color>
+
+    <color name="control_btn_text">#000000</color>
+    <color name="control_btn_pressed">#CCFFFFFF</color>
+    <color name="control_btn_normal">#55FFFFFF</color>
+
+    <color name="vision_text">#FFFFFF</color>
+
+</resources>

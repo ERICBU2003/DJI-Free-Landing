@@ -1,0 +1,25 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        // Android Gradle Plugin
+        classpath "com.android.tools.build:gradle:8.2.2"
+
+        // Kotlin Gradle Plugin（用于 Kotlin 支持）
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10"
+    }
+}
+
+// 所有子项目的通用配置（通常为空）
+allprojects {
+    // 空的即可，不要写 repositories
+}
+
+// 清理任务
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

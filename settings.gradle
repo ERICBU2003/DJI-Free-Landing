@@ -1,0 +1,33 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url 'https://developer.dji.com/repo/' }
+    }
+
+    plugins {
+        // 使用一个合理的最新 AGP 版本，如 8.2.2
+        id 'com.android.application' version '8.2.2' apply false
+        // 强制使用 1.7.20 解决签名冲突
+        id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://developer.dji.com/repo/' }
+
+        // 🌟 关键修复点 1：项目级 AAR 引用
+        // 确保所有模块都能找到 libs 目录下的 AAR 文件
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+rootProject.name = "Free-Landing Final"
+include ':app', ':djiapp' // 保留您的多模块配置

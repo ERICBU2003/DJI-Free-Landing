@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FreeLanding</string>
+
+    <string name="btn_takeoff">Take Off</string>
+    <string name="btn_land">Land</string>
+    <string name="btn_hover">Hover</string>
+    <string name="btn_vs_on">VS ON</string>
+    <string name="btn_vs_off">VS OFF</string>
+
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_connected">Connected</string>
+    <string name="status_battery">Battery: %1$d%%</string>
+    <string name="status_gps">GPS: %1$d</string>
+
+    <string name="vision_cx">cx: %1$.2f</string>
+    <string name="vision_cy">cy: %1$.2f</string>
+    <string name="vision_valid">valid: %1$s</string>
+
+    <string name="toast_takeoff">Taking off…</string>
+    <string name="toast_land">Landing…</string>
+    <string name="toast_hover">Hovering…</string>
+    <string name="toast_vs_on">Virtual Stick Enabled</string>
+    <string name="toast_vs_off">Virtual Stick Disabled</string>
+    <string name="toast_no_connection">Aircraft not connected</string>
+    <string name="toast_no_camera">Camera unavailable</string>
+    <string name="toast_no_vision">No vision target detected</string>
+
+    <string name="error_vs_failed">Failed to enable Virtual Stick</string>
+    <string name="error_takeoff_failed">Takeoff failed</string>
+    <string name="error_land_failed">Landing failed</string>
+
+    <string name="loading">Loading…</string>
+
+</resources>
